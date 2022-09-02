@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class BotonAzul extends StatelessWidget {
   final String text;
-  final Function function;
+  final Function? function;
 
-  const BotonAzul({Key? key, required this.text, required this.function}) : super(key: key);
+  const BotonAzul({Key? key, required this.text, required this.function})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class BotonAzul extends StatelessWidget {
         shape: const StadiumBorder(),
         backgroundColor: Colors.blue,
       ),
-      onPressed: () => function(),
+      onPressed: () => function,
       child: SizedBox(
         width: double.infinity,
         height: 55,

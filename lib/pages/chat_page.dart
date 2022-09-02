@@ -7,6 +7,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatefulWidget {
+  const ChatPage({super.key});
+
   @override
   State<ChatPage> createState() => _ChatPageState();
 }
@@ -146,5 +148,15 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
     _messages.insert(0, newMessage);
     newMessage.animationController.forward();
     setState(() {});
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    // Off del socket
+    for (ChateMessage message in _messages) {
+      message.animationController.dispose();
+    }
+    super.dispose();
   }
 }
